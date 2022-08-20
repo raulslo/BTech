@@ -1,18 +1,21 @@
-from Product.serialisers import ProductSerializers, LikeSerializers, CategorySerializers,\
-    BainerySerializers, SimilarProductsSerializers
+from Product.serialisers import (
+    ProductSerializers,
+    LikeSerializers,
+    CategorySerializers,
+    BainerySerializers,
+    SimilarProductsSerializers,
+)
 from Product.models import Product, LikeProduct, Category
 from rest_framework import status
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 
 
-
 class ProductCreateListAPIVeiw(ListCreateAPIView):
-    queryset = Product.objects.get_queryset().order_by('id')
+    queryset = Product.objects.get_queryset().order_by("id")
     serializer_class = ProductSerializers
 
 
-
-class  ProductDetailUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
+class ProductDetailUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializers
 
@@ -32,17 +35,16 @@ class BayneryAPIView(ListCreateAPIView):
     serializer_class = BainerySerializers
 
 
-
-class  BainaryDetailUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
+class BainaryDetailUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all()
     serializer_class = BainerySerializers
 
 
 class SimilarProductsAPIView(ListCreateAPIView):
     queryset = Product.objects.all()
-    serializer_class =SimilarProductsSerializers
+    serializer_class = SimilarProductsSerializers
 
 
-class  SimilarProductsDetailUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
+class SimilarProductsDetailUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all()
-    serializer_class =  SimilarProductsSerializers
+    serializer_class = SimilarProductsSerializers

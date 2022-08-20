@@ -15,46 +15,112 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Category',
+            name="Category",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
-                ('is_popular', models.BooleanField(default=True)),
-                ('paret', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='Product.category')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100)),
+                ("is_popular", models.BooleanField(default=True)),
+                (
+                    "paret",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="Product.category",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Product',
+            name="Product",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('image', models.ImageField(upload_to='')),
-                ('title', models.CharField(blank=True, max_length=80, null=True)),
-                ('description', models.TextField()),
-                ('price', models.FloatField()),
-                ('cpu', models.CharField(blank=True, max_length=50, null=True)),
-                ('main_camera', models.CharField(blank=True, max_length=50, null=True)),
-                ('front_camera', models.CharField(blank=True, max_length=50, null=True)),
-                ('memory', models.IntegerField()),
-                ('ram', models.IntegerField()),
-                ('is_hit', models.BooleanField(default=True)),
-                ('new_price', models.FloatField(blank=True, default=True, null=True)),
-                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='Product.category')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("image", models.ImageField(upload_to="")),
+                ("title", models.CharField(blank=True, max_length=80, null=True)),
+                ("description", models.TextField()),
+                ("price", models.FloatField()),
+                ("cpu", models.CharField(blank=True, max_length=50, null=True)),
+                ("main_camera", models.CharField(blank=True, max_length=50, null=True)),
+                (
+                    "front_camera",
+                    models.CharField(blank=True, max_length=50, null=True),
+                ),
+                ("memory", models.IntegerField()),
+                ("ram", models.IntegerField()),
+                ("is_hit", models.BooleanField(default=True)),
+                ("new_price", models.FloatField(blank=True, default=True, null=True)),
+                (
+                    "category",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="Product.category",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='LikeProduct',
+            name="LikeProduct",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='Product.product')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "product",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="Product.product",
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='ImageProduct',
+            name="ImageProduct",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('image', models.ImageField(upload_to='')),
-                ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='Product.product')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("image", models.ImageField(upload_to="")),
+                (
+                    "product",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="Product.product",
+                    ),
+                ),
             ],
         ),
     ]

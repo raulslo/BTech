@@ -8,34 +8,36 @@ from .models import Product, LikeProduct, ImageProduct
 class BainerySerializers(serializers.ModelSerializer):
     class Meta:
         model = models.Product
-        fields = 'id image title price'.split()
+        fields = "id image title price".split()
+
 
 class SimilarProductsSerializers(serializers.ModelSerializer):
     class Meta:
         model = models.Product
-        fields = 'id title image price '.split()
+        fields = "id title image price ".split()
+
 
 class ProductSerializers(serializers.ModelSerializer):
     class Meta:
         model = models.Product
-        fields = '__all__'
+        fields = "__all__"
 
 
 class LikeSerializers(serializers.ModelSerializer):
     class Meta:
         model = models.LikeProduct
-        fields = '__all__'
+        fields = "__all__"
 
 
 class CategorySerializers(serializers.ModelSerializer):
     class Meta:
         model = models.Category
-        fields = '__all__'
+        fields = "__all__"
 
 
 def velidate_director_id(category_id):
     if Product.objects.filter(id=category_id).count() == 0:
-        raise ValidationError(f'Category with id={category_id} not found!')
+        raise ValidationError(f"Category with id={category_id} not found!")
     return category_id
 
 
@@ -58,7 +60,7 @@ class ProductValidateSerializer(serializers.Serializer):
 
     def velidate_director_id(self, product_id):
         if Product.objects.filter(id=product_id).count() == 0:
-            raise ValidationError(f'Product with id={product_id} not found!')
+            raise ValidationError(f"Product with id={product_id} not found!")
         return product_id
 
 
@@ -68,7 +70,7 @@ class LikeValidateSerializer(serializers.Serializer):
 
     def validate_movie_id(self, like_id):
         if LikeProduct.objects.filter(id=like_id).count() == 0:
-            raise ValidationError(f'Like with id={like_id} not found!')
+            raise ValidationError(f"Like with id={like_id} not found!")
         return like_id
 
 
@@ -78,5 +80,5 @@ class ImageValidateSerializer(serializers.Serializer):
 
     def velidate_director_id(self, Image_id):
         if ImageProduct.objects.filter(id=Image_id).count() == 0:
-            raise ValidationError(f'Category with id={Image_id} not found!')
+            raise ValidationError(f"Category with id={Image_id} not found!")
         return Image_id

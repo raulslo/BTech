@@ -6,23 +6,23 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('Product', '0005_alter_product_cpu_alter_product_title'),
+        ("Product", "0005_alter_product_cpu_alter_product_title"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='product',
-            name='description',
-            field=models.TextField(verbose_name='Описание'),
+            model_name="product",
+            name="description",
+            field=models.TextField(verbose_name="Описание"),
         ),
         migrations.AlterField(
-            model_name='product',
-            name='price',
-            field=models.FloatField(verbose_name='цена'),
+            model_name="product",
+            name="price",
+            field=models.FloatField(verbose_name="цена"),
         ),
         migrations.AlterField(
-            model_name='product',
-            name='title',
-            field=models.CharField(max_length=80, null=True, verbose_name='название'),
+            model_name="product",
+            name="title",
+            field=models.CharField(max_length=80, null=True, verbose_name="название"),
         ),
     ]

@@ -1,19 +1,10 @@
-FROM python:3.8.10
+FROM python:3.9
 
-RUN apt-get update
+RUN mkdir /app
+WORKDIR /app/
 
-COPY requirements.txt requirements.txt
-RUN python -m pip install --upgrade pip
+COPY requirements.txt .
+
 RUN pip install -r requirements.txt
 
-
-
-COPY . .
-
-WORKDIR /app
-
-
-ADD . /app
-
-
-CMD gunicorn core.wsgi:application --bind 0.0.0.0:$PORT
+COPY . /app

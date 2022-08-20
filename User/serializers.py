@@ -9,7 +9,7 @@ class UserValidateSerializer(serializers.Serializer):
 
     def validate_username(self, username):
         if User.objects.filter(username=username):
-            raise ValidationError('User already exists!!!')
+            raise ValidationError("User already exists!!!")
         return username
 
 
